@@ -21,3 +21,6 @@ jobs:
       - run: aws s3 sync ./build s3://$BUCKET_NAME/latest
         env:
           BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
+      - run: aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID
+        env:
+          DISTRIBUTION_ID: ${{ secrets.AWS_CF_DISTRIBUTION_ID }}          
