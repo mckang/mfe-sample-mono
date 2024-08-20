@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+// const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const path = require("path");
 const dependencies = require("./package.json").dependencies;
 
@@ -9,12 +9,12 @@ module.exports = {
     path: path.resolve(__dirname, "build"),
     filename: "bundle.js",
   },
-  mode: "development",
-  devServer: {
-    port: 7000,
-    hot: true,
-    historyApiFallback: true,
-  },
+  mode: "production",
+  // devServer: {
+  //   port: 7000,
+  //   hot: true,
+  //   historyApiFallback: true,
+  // },
   resolve: {
     extensions: [".js", ".jsx"],
   },
@@ -48,6 +48,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./public/index.html"),
     }),
-    new ReactRefreshWebpackPlugin()
+    // new ReactRefreshWebpackPlugin()
   ],
 };
